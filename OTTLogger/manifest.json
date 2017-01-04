@@ -3,25 +3,33 @@
   "name": "OTT Logger",
   "version": "1.0",
 
+  "background": {
+    "page": "background.html"
+  },
+
+  "browser_action": {
+    "default_title": "OTT Logger action"
+  },
+
   "description": "시청한 영상 정보를 저장하는 익스텐션",
   "icons": { "16": "icon16.png",
     "48": "icon48.png",
     "128": "icon128.png" },
-
-  "browser_action": {
-    "default_popup": "popup.html"
-  },
+  
   "content_scripts": [
     {
-      "matches": ["http://www.ruliweb.com/*",
-        "https://www.netflix.com/watch/*",
-        "https://www.youtube.com/watch?*"
+      "matches": [
+        "<all_urls>"
         ],
       "js": ["contentscript.js"]
     }
   ],
+
+  "offline_enabled": true,
+
   "permissions": [
     "tabs",
-    "activeTab"
+    "webRequest",
+    "<all_urls>"
   ]
 }
